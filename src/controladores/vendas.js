@@ -18,19 +18,19 @@ const vendas = async (req, res) => {
 
     
     try {
-        // const vendas = await fs.readFile('./src/vendas.json');
+        const vendas = await fs.readFile('./src/vendas.json');
         
-        // const parseVendas = JSON.parse(vendas);
+        const parseVendas = JSON.parse(vendas);
 
         console.log(parseVendas);
-        // parseVendas.vendas.push({
-        //     produto: produtoEncontrado,
-        //     quantidade
-        // });
+         parseVendas.vendas.push({
+             produto: produtoEncontrado,
+             quantidade
+         });
 
-        // await fs.writeFile('./src/vendas.json', JSON.stringify(parseVendas));
+         await fs.writeFile('./src/vendas.json', JSON.stringify(parseVendas));
 
-        // return res.status(201).json('Vendas registradas com sucesso.');
+         return res.status(201).json('Vendas registradas com sucesso.');
 
     } catch (erro) {
         return res.status(500).json('Erro do servidor');
